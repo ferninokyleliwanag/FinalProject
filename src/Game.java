@@ -11,6 +11,7 @@ public class Game extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pacman");
         setResizable(false);
+        setVisible(true);
         this.maze = new Maze();
         add(this.maze);
         pack();
@@ -20,6 +21,19 @@ public class Game extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
+                if(GAMESTATES.isMENU()) {
+                    if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        GAMESTATES.startGame();
+                    }
+                } else if(GAMESTATES.isPLAY()) {
+                    if(e.getKeyCode() == KeyEvent.VK_P) {
+                        GAMESTATES.pauseGame();
+                    }
+                } else if(GAMESTATES.isPAUSE()) {
+                    if(e.getKeyCode() == KeyEvent.VK_P) {
+                        GAMESTATES.resumeGame();
+                    }
+                }
             }
 
             @Override
@@ -32,6 +46,7 @@ public class Game extends JFrame {
 
     public static void main(String[] args) {
         Game game = new Game();
+        GAMESTATES.gameLaunch();
         game.maze.setup();
     }
 
