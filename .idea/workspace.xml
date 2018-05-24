@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81b4b291-67c8-4eca-83c2-16a7b5d129e9" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/GAMESTATES.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/Maze.java" afterPath="$PROJECT_DIR$/src/Maze.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Entity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/IPaint.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,15 +16,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Maze.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Maze.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Maze.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="323">
               <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1431#1432#0" expanded="true" />
                 <element signature="e#1456#1457#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+              <folding>
+                <element signature="e#108#109#0" expanded="true" />
+                <element signature="e#135#136#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,6 +66,9 @@
         <option value="$PROJECT_DIR$/src/GAMESTATES.java" />
         <option value="$PROJECT_DIR$/src/Maze.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Entity.java" />
+        <option value="$PROJECT_DIR$/src/IPaint.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
       </list>
     </option>
   </component>
@@ -270,14 +285,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="e#169#170#0" expanded="true" />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="323">
           <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1431#1432#0" expanded="true" />
             <element signature="e#1456#1457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IPaint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#135#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
