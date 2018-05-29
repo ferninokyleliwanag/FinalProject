@@ -24,6 +24,7 @@ public class Game extends JFrame {
                 if(GAMESTATES.isMENU()) {
                     if(e.getKeyCode() == KeyEvent.VK_ENTER) {
                         GAMESTATES.startGame();
+                        maze.setup();
                     }
                 } else if(GAMESTATES.isPLAY()) {
                     if(e.getKeyCode() == KeyEvent.VK_P) {

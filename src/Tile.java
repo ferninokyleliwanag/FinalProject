@@ -3,13 +3,18 @@ import java.awt.image.BufferedImage;
 
 public class Tile implements IPaint {
 
-    private Image image;
-    private int x, y;
+    public Image image;
+    public int x;
+    public int y;
 
     public Tile(Image image, int x, int y) {
         this.image = image;
         this.x = x;
         this.y = y;
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, 32 ,32);
     }
 
     @Override

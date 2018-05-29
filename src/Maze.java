@@ -10,7 +10,7 @@ public class Maze extends JPanel implements ActionListener {
     Timer timer;
 
     public Maze() {
-        setPreferredSize(new Dimension(432, 768));
+        setPreferredSize(new Dimension(540, 960));
         setBackground(Color.BLACK);
         timer = new Timer(1000/60, this);
         timer.start();
@@ -21,24 +21,31 @@ public class Maze extends JPanel implements ActionListener {
         tiles = new ArrayList<>();
 
         // Top and bottom border
-        for(int i = 0; i < 13; i++) {
+        int columns = 15, rows = 30, padding = 30;
+        for(int i = 0; i < columns; i++) {
             if(i == 0) {
-                tiles.add(new BorderTiles.TopLeftCornerBorder(i * 32, 0));
-                tiles.add(new BorderTiles.BotLeftCornerBorder(i * 32, 736));
-                for(int j = 1; j < 23; j++) {
-                    tiles.add(new BorderTiles.CenterBorder(i * 32, j * 32));
+                tiles.add(new BorderTiles.TopLeftCornerBorder((i * 32)+padding, 0));
+                tiles.add(new BorderTiles.BotLeftCornerBorder((i * 32)+padding, getHeight()-32));
+                for(int j = 1; j < rows - 1; j++) {
+                    tiles.add(new BorderTiles.CenterLeftBorder((i * 32)+padding, j * 32));
+                    tiles.add(new PelletTile(32 + padding, j * 32));
                 }
-            } else if(i == 12) {
-                tiles.add(new BorderTiles.TopRightCornerBorder(i * 32, 0));
-                tiles.add(new BorderTiles.BotRightCornerBorder(i * 32, 736));
-                for(int j = 1; j < 23; j++) {
-                    tiles.add(new BorderTiles.CenterBorder(i * 32, j * 32));
+            } else if(i == columns - 1) {
+                tiles.add(new BorderTiles.TopRightCornerBorder((i * 32)+padding, 0));
+                tiles.add(new BorderTiles.BotRightCornerBorder((i * 32)+padding, getHeight()-32));
+                for(int j = 1; j < rows - 1; j++) {
+                    tiles.add(new BorderTiles.CenterRightBorder((i * 32)+padding, j * 32));
+                    tiles.add(new PelletTile(i*32, j * 32));
                 }
             } else {
-                tiles.add(new BorderTiles.MiddleBorder(i * 32, 0));
-                tiles.add(new BorderTiles.MiddleBorder(i * 32, 736));
+                tiles.add(new BorderTiles.MiddleTopBorder((i * 32)+padding, 0));
+                tiles.add(new BorderTiles.MiddleBotBorder((i * 32)+padding, getHeight()-32));
             }
         }
+
+        // Add fruit tile
+        int x = (columns*16)+padding, y = (rows*16);
+        tiles.add(new FruitTile(x, y));
 
     }
 
@@ -51,8 +58,9 @@ public class Maze extends JPanel implements ActionListener {
             g.setFont(new Font("Courier", Font.BOLD, 24));
             printSimpleString("Press Enter to start", getWidth(), 0, getHeight()/2 + 50, g);
         } else if(GAMESTATES.isPLAY()) {
-            g.setFont(new Font("Courier", Font.PLAIN, 24));
-            printSimpleString("Score: " + GAMESTATES.getSCORE(), 0, getWidth()/8, 25, g);
+            for(Tile tile : tiles) {
+                tile.paintImage(g);
+            }
         } else if(GAMESTATES.isPAUSE()) {
             g.setFont(new Font("Courier", Font.BOLD, 48));
             printSimpleString("Paused", getWidth(), 0, getHeight()/2, g);
