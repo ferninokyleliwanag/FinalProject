@@ -11,7 +11,7 @@ public class Maze extends JPanel implements ActionListener {
     private Timer timer;
 
     public Maze() {
-        setPreferredSize(new Dimension(540, 960));
+        setPreferredSize(new Dimension(476, 896));
         setBackground(Color.BLACK);
         timer = new Timer(1000/60, this);
         timer.start();
@@ -22,7 +22,7 @@ public class Maze extends JPanel implements ActionListener {
         tiles = new ArrayList<>();
 	player = new Player(64, 64);
         // Top and bottom border
-        int columns = 15, rows = 30, padding = 30;
+        int columns = 14, rows = 28, padding = 14;
         for(int i = 0; i < columns; i++) {
             if(i == 0) {
                 tiles.add(new BorderTiles.TopLeftCornerBorder((i * 32)+padding, 0));
