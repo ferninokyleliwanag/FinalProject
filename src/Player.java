@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.*;
 
 public class Player extends Entity implements IPaint {
 
@@ -19,7 +20,7 @@ public class Player extends Entity implements IPaint {
 	Rectangle newPosition = new Rectangle(x + dx, y + dy, 32, 32);
 	int newDx = dx, newDy = dy;
 	for(Tile tile : tiles) {
-	    if(tile.getBounds().intersectsWith(newPosition)) {
+	    if(tile.getBounds().intersects(newPosition)) {
 		if(!(tile instanceof PelletTile) || !(tile instanceof FruitTile)) {
 		    newDx = 0;
 		    newDy = 0;

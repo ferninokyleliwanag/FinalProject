@@ -9,7 +9,7 @@ public class PelletTile extends Tile {
     }
 
     public void eat() {
-	GAMESTATES.setSCORE(GAMESTATES.getScore() + 10);
+	GAMESTATES.setSCORE(GAMESTATES.getSCORE() + 10);
 	eaten = false;
     }
 

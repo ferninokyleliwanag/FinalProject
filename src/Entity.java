@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Entity {
 
-    private int x, y;
+    public int x, y;
 
     public Entity(int x, int y) {
         this.x = x;
