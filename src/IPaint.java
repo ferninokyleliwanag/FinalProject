@@ -4,4 +4,5 @@ public interface IPaint {
 
     void paintImage(Graphics g);
 
+
 }

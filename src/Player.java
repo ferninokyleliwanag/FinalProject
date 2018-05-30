@@ -1,4 +1,8 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class Player extends Entity implements IPaint {
@@ -40,5 +44,34 @@ public class Player extends Entity implements IPaint {
         g.setColor(Color.YELLOW);
 	g.fillOval(x, y, 32, 32);
     }
+
+
+    private static BufferedImage spriteSheet;
+    public static final int TILE_SIZE = 32;
+
+    public static BufferedImage loadSprite(String file){
+
+        BufferedImage sprite = null;
+
+        try{
+            sprite = ImageIO.read(new File("res/" + file + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return sprite;
+
+    }
+
+    public static BufferedImage getSprite(int xGrid, int yGrid){
+
+        if(spriteSheet == null){
+            spriteSheet = loadSprite("pacman sprite sheet");
+        }
+
+        return spriteSheet.getSubimage(xGrid * TILE_SIZE, yGrid*TILE_SIZE,TILE_SIZE, TILE_SIZE);
+    }
+
+
 
 }

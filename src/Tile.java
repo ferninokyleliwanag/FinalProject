@@ -23,4 +23,6 @@ public class Tile implements IPaint {
         g2d.drawImage(image, x, y, null);
     }
 
+
+
 }
