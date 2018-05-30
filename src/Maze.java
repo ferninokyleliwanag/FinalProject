@@ -6,8 +6,9 @@ import java.util.ArrayList;
 
 public class Maze extends JPanel implements ActionListener {
 
-    ArrayList<Tile> tiles;
-    Timer timer;
+    public Player player;
+    private ArrayList<Tile> tiles;
+    private Timer timer;
 
     public Maze() {
         setPreferredSize(new Dimension(540, 960));
@@ -19,7 +20,7 @@ public class Maze extends JPanel implements ActionListener {
     public void setup() {
 
         tiles = new ArrayList<>();
-
+	player = new Player(64, 64);
         // Top and bottom border
         int columns = 15, rows = 30, padding = 30;
         for(int i = 0; i < columns; i++) {
@@ -58,9 +59,11 @@ public class Maze extends JPanel implements ActionListener {
             g.setFont(new Font("Courier", Font.BOLD, 24));
             printSimpleString("Press Enter to start", getWidth(), 0, getHeight()/2 + 50, g);
         } else if(GAMESTATES.isPLAY()) {
+	    player.move(tiles);
             for(Tile tile : tiles) {
                 tile.paintImage(g);
             }
+	    player.paintImage(g);
         } else if(GAMESTATES.isPAUSE()) {
             g.setFont(new Font("Courier", Font.BOLD, 48));
             printSimpleString("Paused", getWidth(), 0, getHeight()/2, g);

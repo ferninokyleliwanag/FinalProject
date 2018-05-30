@@ -29,7 +29,15 @@ public class Game extends JFrame {
                 } else if(GAMESTATES.isPLAY()) {
                     if(e.getKeyCode() == KeyEvent.VK_P) {
                         GAMESTATES.pauseGame();
-                    }
+                    } else if(e.getKeyCode() == KeyEvent.VK_UP) {
+			maze.player.setVelocity(0, -4);
+		    } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+			maze.player.setVelocity(0, 4);
+		    } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			maze.player.setVelocity(-4, 0);
+		    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			maze.player.setVelocity(4, 0);
+		    }
                 } else if(GAMESTATES.isPAUSE()) {
                     if(e.getKeyCode() == KeyEvent.VK_P) {
                         GAMESTATES.resumeGame();
