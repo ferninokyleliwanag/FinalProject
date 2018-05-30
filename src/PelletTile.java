@@ -8,6 +8,16 @@ public class PelletTile extends Tile {
         super(null, x, y);
     }
 
+    public void eat() {
+	GAMESTATES.setSCORE(GAMESTATES.getScore() + 10);
+	eaten = false;
+    }
+
+    @Override
+    public Rectangle getBounds() {
+	return new Rectangle(x + 8, y + 8, 16, 16);
+    }
+
     @Override
     public void paintImage(Graphics g) {
         g.setColor(Color.YELLOW);

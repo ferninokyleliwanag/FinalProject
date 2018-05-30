@@ -23,6 +23,10 @@ public class Player extends Entity implements IPaint {
 		if(!(tile instanceof PelletTile) || !(tile instanceof FruitTile)) {
 		    newDx = 0;
 		    newDy = 0;
+		} else if(tile instanceof FruitTile) {
+		    ((FruitTile)tile).eatFruit();
+		} else if(tile instanceof PelletTile) {
+		    ((PelletTile)tile).eat();
 		}
 	    }
 	}
