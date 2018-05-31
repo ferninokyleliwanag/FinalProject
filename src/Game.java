@@ -21,25 +21,25 @@ public class Game extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-                if(GAMESTATES.isMENU()) {
-                    if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (GAMESTATES.isMENU()) {
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                         GAMESTATES.startGame();
                         maze.setup();
                     }
-                } else if(GAMESTATES.isPLAY()) {
-                    if(e.getKeyCode() == KeyEvent.VK_P) {
+                } else if (GAMESTATES.isPLAY()) {
+                    if (e.getKeyCode() == KeyEvent.VK_P) {
                         GAMESTATES.pauseGame();
-                    } else if(e.getKeyCode() == KeyEvent.VK_UP) {
-			maze.player.setVelocity(0, -4);
-		    } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-			maze.player.setVelocity(0, 4);
-		    } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-			maze.player.setVelocity(-4, 0);
-		    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			maze.player.setVelocity(4, 0);
-		    }
-                } else if(GAMESTATES.isPAUSE()) {
-                    if(e.getKeyCode() == KeyEvent.VK_P) {
+                    } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                        maze.player.changeDirection("UP", maze.tiles);
+                    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                        maze.player.changeDirection("DOWN", maze.tiles);
+                    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                        maze.player.changeDirection("LEFT", maze.tiles);
+                    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                        maze.player.changeDirection("RIGHT", maze.tiles);
+                    }
+                } else if (GAMESTATES.isPAUSE()) {
+                    if (e.getKeyCode() == KeyEvent.VK_P) {
                         GAMESTATES.resumeGame();
                     }
                 }

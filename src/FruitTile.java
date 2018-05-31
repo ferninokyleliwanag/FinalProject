@@ -11,8 +11,8 @@ public class FruitTile extends Tile {
 
     public void eatFruit() {
         lastFruitTime = System.currentTimeMillis();
-        fruit = 0;
         GAMESTATES.setSCORE(GAMESTATES.getSCORE() + (fruit * 100));
+        fruit = 0;
     }
 
     private Color getColor() {
@@ -28,13 +28,15 @@ public class FruitTile extends Tile {
 
     @Override
     public void paintImage(Graphics g) {
-        if(System.currentTimeMillis() - lastFruitTime >= 100 && fruit == 0) {
+        if(System.currentTimeMillis() - lastFruitTime >= 7500 && fruit == 0) {
             fruit = (int)(Math.random() * 6);
         }
         g.setFont(new Font("Comic Sans Ms", Font.BOLD, 12));
-        printSimpleString("" + fruit*100, 32, x, y+16, g);
-        g.setColor(getColor());
-        g.drawRect(x, y, 32, 32);
+        if(fruit != 0) {
+            printSimpleString("" + fruit * 100, 32, x, y + 16, g);
+            g.setColor(getColor());
+            g.drawRect(x, y, 32, 32);
+        }
     }
 
     private void printSimpleString(String s, int width, int XPos, int YPos, Graphics g2d){
