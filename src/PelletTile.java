@@ -1,4 +1,13 @@
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.applet.AudioClip;
 import java.awt.*;
+import java.io.File;
+import java.net.URL;
 
 public class PelletTile extends Tile {
 
@@ -16,6 +25,17 @@ public class PelletTile extends Tile {
         if(!eaten) {
             GAMESTATES.setSCORE(GAMESTATES.getSCORE() + 10);
             eaten = true;
+            try {
+                // Open an audio input stream.
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(getClass().getResource("/sound/eat.wav"));
+                // Get a sound clip resource.
+                Clip clip = AudioSystem.getClip();
+                // Open audio clip and load samples from the audio input stream.
+                clip.open(audioIn);
+                clip.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
